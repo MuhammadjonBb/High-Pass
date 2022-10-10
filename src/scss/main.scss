@@ -1,16 +1,14 @@
 // базовые подключения
+@import "vendor";
 @import "vars";
 @import "mixins";
 @import "fonts";
 @import "settings";
 
-// подключения компонентов страницы
-@import "./components/header";
-
-// тестовые стили, удалите их
-.page__body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--vh);
-}
+@import "components/header";
+@import "components/examples";
+@import "components/examples";
+@import "components/about";
+@import "components/projects";
+@import "components/contacts";
+@import "components/footer";

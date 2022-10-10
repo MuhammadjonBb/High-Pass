@@ -1,0 +1,340 @@
+.header {
+  background-color: $darken;
+  padding: 25px 0;
+  z-index: -5;
+  overflow-x: hidden;
+
+  &__container {
+    @include flex-all-sb;
+  }
+
+  &__logo {
+    width: 190px;
+    height: 30px;
+  }
+}
+
+.nav {
+  margin: 0 80px 0 0;
+
+  &__list {
+    @include flex-all-center;
+    margin: 0 0 0 26px;
+  }
+
+  &__item {
+    @include mr(83px);
+  }
+
+  &__link {
+    line-height: 21px;
+    color: $white;
+    transition: color 0.3s ease-in-out;
+  }
+
+  &__link-text {
+    position: relative;
+    z-index: 5;
+  }
+
+  &__link-text::before {
+    @include focus;
+  }
+
+  &__link:focus:not(:active):not(:hover) &__link-text::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &__link:active {
+    color: $brown;
+  }
+
+  @include hover {
+    &__link:hover {
+      @include btnStylesHov;
+    }
+  }
+}
+
+.search {
+  @include flex;
+  position: relative;
+
+  &__input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $brighter-gray;
+    font-family: "TT Firs Neue";
+    font-size: 14px;
+    line-height: 18px;
+    color: $brighter-gray;
+    transition: border-color 0.3s ease-in-out;
+  }
+
+  &__items-wrap {
+    width: 150px;
+    position: absolute;
+    @include flex;
+    right: 30px;
+    transform: translateX(120%) scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  &__btn {
+    transform: translateY(3px);
+  }
+
+  &__items-wrap.search--active {
+    transform: none;
+  }
+
+  &__input::placeholder {
+    color: $brighter-gray;
+  }
+
+  &__icon {
+    transition: fill 0.3s ease-in-out;
+    fill: $white;
+  }
+
+  &__close-btn {
+    display: none;
+  }
+
+  &__input:focus {
+    outline: none;
+    border-color: $light-brown;
+  }
+
+  &__btn:focus &__icon {
+    outline: none;
+    fill: $orange;
+  }
+
+  @include hover {
+    &__input:hover {
+      border-color: $orange;
+    }
+  }
+}
+
+.burger,
+.menu {
+  display: none;
+}
+
+@include big-desktop {
+  .header {
+    &__logo {
+      width: 166px;
+      height: 26px;
+    }
+  }
+
+  .nav__item:not(:last-child) {
+    margin-right: 3.23vw;
+  }
+
+  .nav.hidden-nav {
+    transform: translateX(200%) scaleX(0);
+  }
+
+  .search__items-wrap {
+    width: 16vw;
+  }
+}
+
+@include tablet {
+  .header {
+    padding: 27px 0;
+
+    &__logo {
+      margin: 0 9px 0 0;
+      width: 17.5vw;
+      object-fit: contain;
+    }
+
+    &__search {
+      position: absolute;
+      right: 31px;
+    }
+  }
+
+  .nav {
+    transition: transform 0.3s cubic-bezier(0, 1, 0.71, 1);
+    margin: 0 9% 0 0;
+
+    &__list {
+      margin: 0;
+    }
+  }
+
+  .nav__item:not(:last-child) {
+    margin-right: calc(14px + 7.0625vw - 7%);
+  }
+
+  .search.overflow-h {
+    overflow-x: hidden;
+  }
+}
+
+@include small-tablet {
+  .header {
+    margin: 0 0 45px;
+
+    &__logo {
+      width: 21.8vw;
+    }
+  }
+
+  .nav {
+    margin: 0;
+    padding: 13px 27px;
+    position: absolute;
+    top: 79px;
+    left: 0;
+    right: 0;
+    background-color: $gray;
+
+    &__list {
+      justify-content: space-between;
+    }
+  }
+
+  .search {
+    position: initial;
+
+    &__btn {
+      transform: none;
+    }
+
+    &__items-wrap {
+      right: 60px;
+      width: 44.5vw;
+      transform: translateY(-500%);
+    }
+
+    &__close-btn {
+      display: block;
+    }
+
+    &.overflow-h {
+      overflow-x: visible;
+    }
+  }
+}
+
+@include wide-mobile {
+  .header__logo {
+    width: auto;
+  }
+
+  .burger {
+    display: block;
+    position: absolute;
+    top: 79px;
+    width: 100%;
+    padding: 20px 30px;
+    background: $gray;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .menu {
+    padding: 20px;
+    @include flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    align-items: flex-start;
+    background-color: $darken;
+    z-index: 10;
+    transform: translateX(-500%);
+    transition: transform 0.5s ease-in-out;
+
+    &.menu--active {
+      transform: none;
+    }
+
+    &__nav {
+      margin: 0 0 auto;
+    }
+
+    &__item {
+      @include mb(40px);
+    }
+
+    &__link {
+      font-family: "TT Firs Neue";
+      line-height: 21px;
+      color: $white;
+    }
+
+    &__close {
+      margin: 0 0 20px 0;
+    }
+
+    &__tel-wrap {
+      @include flex-v-center;
+    }
+
+    &__tel-icon {
+      fill: $orange;
+    }
+
+    &__tel {
+      padding: 0 0 0 3px;
+      font-family: "TT Firs Neue";
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      color: $orange;
+    }
+  }
+}
+
+@include mobile {
+  .header {
+    padding: 6vw 0;
+
+    &__logo {
+      width: 40.4%;
+    }
+  }
+
+  .burger {
+    @include flex;
+    top: 68px;
+    padding: 15px 21px;
+
+    &__btn {
+      @include flex;
+    }
+  }
+
+  .search {
+    &__btn {
+      transform: translate(3px, 3px);
+    }
+
+    &__icon {
+      width: 84%;
+    }
+
+    &__items-wrap {
+      width: 70vw;
+      transform: translate(-800%, 47px);
+      z-index: 1;
+    }
+
+    &__items-wrap.search--active {
+      transform: translate(13%, 47px);
+    }
+  }
+}

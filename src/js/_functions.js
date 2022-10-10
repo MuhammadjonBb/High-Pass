@@ -21,7 +21,7 @@ console.log(mobileCheck())
 // import './functions/fix-fullheight';
 
 // Реализация бургер-меню
-// import { burger } from './functions/burger';
+ import { burger } from './functions/burger';
 
 // Реализация остановки скролла (не забудьте вызвать функцию)
 // import { disableScroll } from './functions/disable-scroll';
@@ -64,9 +64,6 @@ console.log(mobileCheck())
 // import Rellax from 'rellax';
 // const rellax = new Rellax('.rellax');
 
-// Подключение плавной прокрутки к якорям
-// import SmoothScroll from 'smooth-scroll';
-// const scroll = new SmoothScroll('a[href*="#"]');
 
 // Подключение событий свайпа на мобильных
 // import 'swiped-events';
@@ -76,7 +73,6 @@ console.log(mobileCheck())
 //   console.log(e.detail.dir);
 // });
 
-// import { validateForms } from './functions/validate-forms';
 // const rules1 = [...];
 
 // const afterForm = () => {
@@ -84,3 +80,10 @@ console.log(mobileCheck())
 // };
 
 // validateForms('.form-1', rules1, afterForm);
+
+
+// реализация открытия и закрытия поиска
+import { close } from "./functions/close";
+import { search } from "./functions/search";
+
+

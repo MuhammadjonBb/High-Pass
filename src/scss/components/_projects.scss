@@ -1,0 +1,531 @@
+.projects {
+  padding: 67px 0;
+
+  &__title {
+    font-family: "TT Firs Neue";
+    margin: 0 0 12px 0;
+    font-size: 24px;
+    line-height: 31px;
+    color: $darken;
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3, 190px) repeat(2, 300px);
+    grid-template-rows: repeat(2, 300px);
+    grid-auto-rows: 300px;
+    grid-template-areas:
+      "landscape portrait1 subject wide1 wide1"
+      "wide2 wide2 wide2 retouch portrait2";
+  }
+
+  &__item {
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__item--small {
+    @include flex-col-end;
+  }
+
+  &__tag {
+    @include pseudo;
+    position: absolute;
+    right: 7px;
+    top: 8px;
+    padding: 6px 14px;
+    font-family: "Roboto";
+    font-size: 14px;
+    line-height: 16px;
+    color: $white;
+    background-color: $darken;
+  }
+
+  &__item-descr {
+    margin-bottom: 12px;
+    font-family: "Roboto";
+    font-size: 16px;
+    line-height: 22px;
+    color: $darken;
+  }
+
+  &__date {
+    @include flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+    align-items: center;
+    align-self: start;
+    font-family: "Roboto";
+    font-size: 12px;
+    line-height: 22px;
+    color: $light-gray;
+  }
+
+  &__date-icon {
+    fill: $light-gray;
+  }
+
+  &__date--wide {
+    margin: 0 0 2px 0;
+    justify-content: flex-end;
+    color: $white;
+  }
+
+  &__item-title {
+    font-family: "TT Firs Neue";
+    margin: 0 0 4px 0;
+    max-width: 250px;
+    font-size: 24px;
+    line-height: 24px;
+    color: $white;
+  }
+
+  &__item--wide {
+    padding: 22px 30px 31px 30px;
+    @include flex;
+    flex-direction: column;
+  }
+
+  &__descr--wide {
+    max-width: 70%;
+    color: $white;
+  }
+
+  &__item--subject &__item-descr {
+    @include linecamp(3);
+  }
+
+  &__link {
+    @include projectsBtn;
+  }
+
+  &__link:focus {
+    background-color: $brown;
+  }
+
+  &__link:active {
+    outline-color: $light-brown;
+    background-color: $light-brown;
+  }
+
+  @include hover {
+    &__link:hover {
+      background-color: $orange;
+    }
+  }
+
+  &__item--landscape {
+    grid-area: landscape;
+    background-image: url("../img/projects-1920_1.webp");
+  }
+  &__item--portrait1 {
+    grid-area: portrait1;
+    background-image: url("../img/projects-1920_2.webp");
+  }
+  &__item--subject {
+    grid-area: subject;
+    background-image: url("../img/projects-1920_3.webp");
+  }
+  &__item--wide1 {
+    grid-area: wide1;
+    background-image: url("../img/projects-1920_4.webp");
+  }
+  &__item--wide2 {
+    grid-area: wide2;
+    background-image: url("../img/projects-1920_5.webp");
+  }
+  &__item--retouch {
+    grid-area: retouch;
+    background-image: url("../img/projects-1920_6.webp");
+  }
+  &__item--portrait2 {
+    grid-area: portrait2;
+    background-image: url("../img/projects-1920_7.webp");
+  }
+}
+@include big-desktop {
+  .projects {
+    &__container {
+      @include flex-v-center;
+      flex-direction: column;
+    }
+
+    &__list {
+      grid-template-columns: repeat(8, minmax(94px, 114px));
+      grid-template-rows: 285px repeat(2, 307px);
+      grid-template-areas:
+        "landscape landscape portrait1 portrait1 subject subject subject subject"
+        "wide1 wide1 wide1 wide1 wide1 retouch retouch retouch"
+        "portrait2 portrait2 portrait2 wide2 wide2 wide2 wide2 wide2";
+    }
+
+    &__item--landscape {
+      background-image: url("../img/projects-1024_1.webp");
+      background-size: 100% 184px;
+    }
+    &__item--portrait1 {
+      background-image: url("../img/projects-1024_2.webp");
+      background-size: 100% 184px;
+    }
+    &__item--subject {
+      background-image: url("../img/projects-1024_3.webp");
+      background-size: 100% 184px;
+    }
+    &__item--wide1 {
+      background-image: url("../img/projects-1024_4.webp");
+      background-size: cover;
+    }
+    &__item--wide2 {
+      background-image: url("../img/projects-1024_7.webp");
+      background-size: cover;
+    }
+    &__item--retouch {
+      background-image: url("../img/projects-1024_5.webp");
+    }
+    &__item--portrait2 {
+      background-image: url("../img/projects-1024_6.webp");
+    }
+
+    &__item--landscape &__item-descr,
+    &__item--portrait1 &__item-descr,
+    &__item--subject &__item-descr {
+      @include linecamp(2);
+    }
+  }
+}
+
+@include tablet {
+  .projects {
+    &__container {
+      align-items: start;
+    }
+
+    &__list {
+      grid-template-columns: repeat(8, minmax(64px, 94px));
+      grid-template-rows: 280px calc(514px / 3 + (410vw / 30)) calc(
+          499px / 3 + (410vw / 30)
+        );
+      gap: 25px 30px;
+    }
+
+    &__item--wide1,
+    &__item--retouch {
+      margin-top: 5px;
+    }
+
+    &__item-title {
+      margin: 0 0 5px 0;
+    }
+
+    &__item-descr {
+      margin: 0 0 11px 0;
+    }
+
+    &__date {
+      transform: translateY(6px);
+    }
+
+    &__item--wide {
+      padding: 24px 30px 37px;
+    }
+
+    &__date--wide {
+      margin: 0 0 8px 0;
+    }
+
+    &__descr--wide {
+      max-width: 28.5vw;
+    }
+
+    &__item--retouch &__item-descr,
+    &__item--portrait2 &__item-descr {
+      margin: 0 0 16px 0;
+      @include linecamp(3);
+    }
+
+    &__item--retouch &__date,
+    &__item--portrait2 &__date {
+      transform: translateY(0);
+    }
+
+    &__item--wide2 {
+      padding: 24px 30px 30px;
+    }
+  }
+}
+
+@include small-tablet {
+  .projects {
+    &__list {
+      grid-template-columns: repeat(6, minmax(74px, 94px));
+      grid-template-rows: repeat(2, 300px) 310px;
+      grid-template-areas:
+        "landscape landscape portrait1 portrait1 subject subject"
+        "wide1 wide1 wide1 wide1 wide1 wide1"
+        "retouch retouch retouch portrait2 portrait2 portrait2"
+        "wide2 wide2 wide2 wide2 wide2 wide2";
+    }
+
+    &__item--landscape {
+      background-image: url("../img/projects-768_1.webp");
+      background-size: 100% 184px;
+    }
+    &__item--portrait1 {
+      background-image: url("../img/projects-768_2.webp");
+      background-size: 100% 184px;
+    }
+    &__item--subject {
+      background-image: url("../img/projects-768_3.webp");
+      background-size: 100% 184px;
+    }
+    &__item--wide1 {
+      background-image: url("../img/projects-768_4.webp");
+      background-size: cover;
+    }
+    &__item--wide2 {
+      background-image: url("../img/projects-768_7.webp");
+      background-size: cover;
+    }
+    &__item--retouch {
+      background-image: url("../img/projects-768_5.webp");
+      margin-top: 5px;
+    }
+    &__item--portrait2 {
+      background-image: url("../img/projects-768_6.webp");
+      margin-top: 5px;
+    }
+
+    &__item--landscape &__item-descr,
+    &__item--portrait1 &__item-descr {
+      @include linecamp(3);
+    }
+
+    &__item-descr {
+      margin: 0 0 10px 0;
+    }
+
+    &__item--subject &__item-descr {
+      margin: 0 0 32px 0;
+    }
+
+    &__date {
+      transform: none;
+    }
+
+    &__item--wide1 {
+      margin: 0;
+    }
+
+    &__item--wide {
+      padding: 30px;
+    }
+
+    &__date--wide {
+      margin: 0 0 3px 0;
+    }
+
+    &__descr--wide {
+      max-width: 38.5vw;
+    }
+
+    &__item--retouch &__item-descr,
+    &__item--portrait2 &__item-descr {
+      margin: 0 0 15px 0;
+    }
+  }
+}
+
+@include wide-mobile {
+  .projects {
+    &__list {
+      grid-template-columns: repeat(8, minmax(25px, 50px));
+      grid-template-rows: 300px 320px 310px 310px 48vw;
+      grid-template-areas:
+        "landscape landscape landscape landscape portrait1 portrait1 portrait1 portrait1"
+        "subject subject subject subject subject subject subject subject "
+        "wide1 wide1 wide1 wide1 wide1 wide1 wide1 wide1"
+        "wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2"
+        "retouch retouch retouch retouch portrait2 portrait2 portrait2 portrait2";
+    }
+
+    &__item--landscape {
+      background-image: url("../img/projects-320_1.webp");
+    }
+    &__item--portrait1 {
+      background-image: url("../img/projects-320_2.webp");
+    }
+    &__item--subject {
+      background-image: url("../img/projects-1024_3.webp");
+      background-size: 100% 215px;
+    }
+    &__item--wide1 {
+      background-image: url("../img/projects-768_4.webp");
+      background-size: cover;
+    }
+    &__item--wide2 {
+      background-image: url("../img/projects-768_7.webp");
+      background-size: cover;
+    }
+    &__item--retouch {
+      background-image: url("../img/projects-320_5.webp");
+    }
+    &__item--portrait2 {
+      background-image: url("../img/projects-320_6.webp");
+    }
+
+    &__item--portrait2 &__item-descr,
+    &__item--retouch &__item-descr {
+      @include linecamp(2);
+    }
+
+    &__item--portrait2,
+    &__item--retouch {
+      padding: 0 0 3.5vw 0;
+    }
+
+    &__descr--wide {
+      min-width: 80%;
+    }
+  }
+}
+
+@include mobile {
+  .projects {
+    padding: 46px 0;
+
+    &__title {
+      @include sectTitleSize;
+    }
+
+    &__tag {
+      font-size: 12px;
+      line-height: 14px;
+      right: 6px;
+      top: 5px;
+      padding: 4px 14px;
+    }
+
+    &__list {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 278px) 422px repeat(2, 300px) 422px;
+      grid-template-areas:
+        "landscape"
+        "portrait1"
+        "subject"
+        "wide1"
+        "retouch"
+        "portrait2"
+        "wide2";
+    }
+
+    &__item {
+      position: relative;
+      background: none;
+    }
+
+    &__item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      z-index: -1;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &__item--landscape::before {
+      bottom: 94px;
+      background-image: url("../img/projects-320_1.webp");
+    }
+
+    &__item--portrait1::before {
+      bottom: 94px;
+      background-image: url("../img/projects-320_2.webp");
+    }
+    &__item--subject::before {
+      bottom: 94px;
+      background-image: url("../img/projects-320_3.webp");
+    }
+    &__item--wide1::before {
+      background-image: url("../img/projects-320_4.webp");
+    }
+    &__item--wide2::before {
+      background-image: url("../img/projects-320_7.webp");
+    }
+    &__item--retouch::before {
+      bottom: 114px;
+      background-image: url("../img/projects-320_5.webp");
+    }
+    &__item--portrait2::before {
+      bottom: 115px;
+      background-image: url("../img/projects-320_6.webp");
+    }
+
+    &__item--retouch,
+    &__item--portrait2 {
+      margin-top: 2px;
+    }
+    &__item--retouch &__item-descr,
+    &__item--portrait2 &__item-descr {
+      margin: 0 0 8px 0;
+      @include linecamp(3);
+    }
+
+    &__item--portrait2,
+    &__item--retouch {
+      padding: 0;
+    }
+
+    &__item--wide {
+      justify-content: flex-end;
+    }
+
+    &__link {
+      padding: 9px 17px;
+      font-size: 14px;
+      line-height: 16px;
+      margin: 0;
+    }
+
+    &__item-title {
+      margin: 0 0 10px 0;
+    }
+
+    &__descr--wide {
+      margin: 0 0 15px 0;
+      font-size: 14px;
+      line-height: 18px;
+      min-width: 100%;
+    }
+
+    &__date--wide {
+      margin: 0 0 7px 0;
+    }
+
+    &__item--landscape &__item-descr {
+      @include linecamp(2);
+    }
+
+    &__item--subject &__item-descr {
+      margin: 0 0 10px 0;
+    }
+
+    &__item--wide1 {
+      margin: -3px 0 3px 0;
+    }
+
+    &__item--wide2 {
+      margin: 2px 0 -2px 0;
+    }
+
+    &__item--wide2 .projects__descr--wide {
+      margin: 0 0 22px 0;
+    }
+  }
+}

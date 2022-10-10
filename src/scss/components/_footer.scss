@@ -1,0 +1,144 @@
+.footer {
+  background-color: $darken;
+  padding: 21px 0 19px;
+
+  &__container {
+    @include flex-v-center;
+  }
+
+  &__logo-wrap {
+    @include flex;
+    flex-direction: column;
+    margin: 0 15.6% 0 0;
+    gap: 5px;
+
+    .logo {
+      max-width: 80%;
+    }
+  }
+
+  &__logo-descr {
+    font-family: "TT Firs Neue";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: $brighter-gray;
+  }
+
+  &__quote {
+    font-family: "Roboto";
+    margin: 0 auto 0 0;
+    max-width: 360px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: $bright-gray;
+    quotes: none;
+  }
+}
+
+.socials {
+  @include flex;
+  flex-direction: column;
+  text-align: center;
+
+  &__title {
+    font-family: "Roboto";
+    margin: 0 0 8px 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: $bright-gray;
+  }
+
+  &__list {
+    @include flex-all-center;
+    gap: 20px;
+  }
+
+  &__icon {
+    fill: $bright-gray;
+    transition: fill 0.3s ease-in-out;
+  }
+
+  &__link:focus &__icon {
+    fill: $brown;
+  }
+
+  &__link:active &__icon {
+    fill: $light-brown;
+  }
+
+  @include hover {
+    &__link:hover &__icon {
+      fill: $orange;
+    }
+  }
+}
+
+@include tablet {
+  .footer {
+    padding: 23px 0 17px;
+
+    &__logo-wrap {
+      margin-right: 13.9%;
+
+      .logo {
+        width: 70%;
+      }
+    }
+
+    &__quote {
+      max-width: 35vw;
+    }
+  }
+}
+
+@include small-tablet {
+  .footer {
+    &__container {
+      justify-content: space-between;
+    }
+
+    &__logo {
+      margin: 0;
+    }
+
+    &__quote {
+      display: none;
+    }
+  }
+}
+
+@include mobile {
+  .footer {
+    padding: 31px 0 0;
+
+    &__container {
+      padding: 0;
+      flex-direction: column-reverse;
+    }
+
+    &__logo-wrap {
+      padding: 12px;
+      margin: 0;
+      gap: 3px;
+      width: 100%;
+      align-items: center;
+      background-color: $gray;
+    }
+
+    &__logo-wrap .logo {
+      width: 38%;
+    }
+
+    &__logo-descr {
+      font-size: 10px;
+      line-height: 13px;
+    }
+  }
+
+  .socials {
+    margin: 0 0 30px 0;
+  }
+}

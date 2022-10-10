@@ -1,11 +1,11 @@
 import { disableScroll } from '../functions/disable-scroll';
 import { enableScroll } from '../functions/enable-scroll';
 
-(function(){
+(function () {
   const burger = document?.querySelector('[data-burger]');
   const menu = document?.querySelector('[data-menu]');
   const menuItems = document?.querySelectorAll('[data-menu-item]');
-  const overlay = document?.querySelector('[data-menu-overlay]');
+  const close = document?.querySelector('[data-close]');
 
   burger?.addEventListener('click', (e) => {
     burger?.classList.toggle('burger--active');
@@ -22,7 +22,7 @@ import { enableScroll } from '../functions/enable-scroll';
     }
   });
 
-  overlay?.addEventListener('click', () => {
+  close?.addEventListener('click', () => {
     burger?.setAttribute('aria-expanded', 'false');
     burger?.setAttribute('aria-label', 'Открыть меню');
     burger.classList.remove('burger--active');

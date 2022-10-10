@@ -1,0 +1,238 @@
+.about {
+  padding: 30px 0 70px;
+  background-color: $darken;
+
+  &__container {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__left {
+    width: 50%;
+  }
+
+  &__right {
+    width: 50%;
+    @include flex;
+    background-image: url("../img/about-1920.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right 32px;
+  }
+
+  &__title {
+    font-family: "TT Firs Neue";
+    margin: 0 0 5px 0;
+    font-size: 24px;
+    line-height: 31px;
+    color: $white;
+  }
+
+  &__text {
+    font-family: "Roboto";
+    line-height: 28px;
+    color: $bright-gray;
+  }
+
+  &__form-title {
+    font-family: "TT Firs Neue";
+    position: relative;
+    font-weight: 400;
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    line-height: 22px;
+    color: $bright-gray;
+  }
+
+  &__form-label {
+    position: relative;
+  }
+
+  &__form-input {
+    margin: 0 30px 0 0;
+    padding: 16px 23px;
+    background: $gray;
+    width: 75%;
+    color: $white;
+    font-family: "Roboto";
+    line-height: 19px;
+  }
+
+  &__form-err-label {
+    top: -11px;
+  }
+}
+
+.form {
+  width: 100%;
+  @include flex;
+  align-self: end;
+  flex-direction: column;
+
+  &__btn {
+    transition: background-color 0.3s ease-in-out;
+    @include btnStyles;
+  }
+
+  &__btn:focus {
+    @include btnStylesFocus;
+  }
+
+  &__btn:active {
+    @include btnStylesActive;
+  }
+
+  @include hover {
+    &__btn:hover {
+      @include btnStylesHov;
+    }
+  }
+}
+
+@include big-desktop {
+  .about {
+    &__right {
+      background-image: url("../img/about-1024.webp");
+      background-size: cover;
+      background-position: center 40px;
+    }
+
+    &__form {
+      padding: 20px 20px 10px 20px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    &__form-input {
+      margin: 0 30px 20px 0;
+    }
+  }
+}
+
+@include tablet {
+  .about {
+    padding: 30px 0 88px;
+
+    &__right {
+      position: relative;
+      background: none;
+    }
+
+    &__right::before {
+      @include pseudo;
+      position: absolute;
+      left: 0;
+      top: 33px;
+      bottom: 32.4%;
+      right: 0;
+      background-image: url("../img/about-1024.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    &__form {
+      padding: 0;
+      background: none;
+    }
+
+    &__form-input {
+      margin: 0 30px 14px 0;
+      padding: 15px 23px;
+      width: 33.4vw;
+    }
+
+    &__form-btn {
+      transform: translateY(6px);
+    }
+  }
+}
+
+@include small-tablet {
+  .about {
+    padding: 30px 0 63px;
+
+    &__right::before {
+      background-image: url("../img/about-768.webp");
+      bottom: 24%;
+    }
+
+    &__form-title {
+      margin: 0 0 16px 0;
+    }
+
+    &__form-input {
+      width: 100%;
+      margin: 0 0 28px 0;
+    }
+
+    &__form-btn {
+      transform: translateY(-8px);
+    }
+  }
+}
+
+@include wide-mobile {
+  .about {
+    &__container {
+      flex-direction: column;
+    }
+
+    &__left,
+    &__right {
+      width: 100%;
+    }
+
+    &__right::before {
+      top: 0;
+      bottom: 42%;
+      background-image: url("../img/about-320.webp");
+    }
+
+    &__form {
+      padding: 54vw 0 0 0;
+    }
+  }
+}
+
+@include mobile {
+  .about {
+    padding: 28px 0 52px;
+
+    &__title {
+      margin: 0 0 1px 0;
+      @include sectTitleSize;
+    }
+
+    &__text {
+      font-size: 14px;
+      line-height: 25px;
+    }
+
+    &__right::before {
+      top: -8px;
+      bottom: 0;
+      height: 280px;
+    }
+
+    &__form {
+      padding: 296px 0 0;
+    }
+
+    &__form-title {
+      margin: 0 0 14px 0;
+      font-size: calc(47px - 152% + 5vw - 120% - 10%);
+      line-height: 22px;
+    }
+
+    &__form-input {
+      margin: 0 0 29px 0;
+      padding: 9px 23px;
+    }
+  }
+
+  .form__btn {
+    padding: 12px 22px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

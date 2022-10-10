@@ -1,0 +1,263 @@
+.examples {
+  padding: 40px 0 70px;
+
+  &__container {
+    @include flex;
+    gap: 29px;
+  }
+}
+.service {
+  position: relative;
+  padding: 60px;
+  width: 50%;
+  @include flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: url("../img/services-1920.jpg");
+  @include bg-cover;
+
+  &__author {
+    margin: 0 0 3px 0;
+    font-family: "Roboto";
+    line-height: 19px;
+    color: $white;
+  }
+
+  &__title {
+    margin: 0 0 20px 0;
+    font-family: "TT Firs Neue";
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 104%;
+    color: $white;
+  }
+
+  &__link {
+    @include btnStyles;
+  }
+
+  &__link:focus {
+    @include btnStylesFocus;
+  }
+
+  &__link:active {
+    @include btnStylesActive;
+  }
+
+  &__tag {
+    @include pseudo;
+    position: absolute;
+    right: 19px;
+    top: 16px;
+    padding: 7px 14px;
+    font-family: "Roboto";
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: $white;
+    background-color: $darken;
+    align-self: flex-end;
+  }
+
+  @include hover {
+    &__link:hover {
+      background-color: $brown;
+    }
+  }
+}
+
+.photos {
+  width: 50%;
+
+  &__title {
+    font-family: "TT Firs Neue";
+    margin: 0 0 18px 0;
+    font-size: 24px;
+    line-height: 104%;
+    color: $darken;
+  }
+
+  &__wrap {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, minmax(218px, 300px));
+    grid-template-rows: 300px 257px;
+    grid-auto-rows: 300px;
+    grid-template-areas:
+      "wide1 wide1"
+      "small1 small2";
+  }
+  &__img {
+    height: 100%;
+  }
+
+  &__pic-1 {
+    grid-area: wide1;
+  }
+  &__pic-2 {
+    grid-area: small1;
+  }
+  &__pic-3 {
+    grid-area: small2;
+  }
+}
+
+@include big-desktop {
+  .photos {
+    &__wrap {
+      grid-template-rows: 332px 186px;
+    }
+
+    &__img {
+      width: 100%;
+    }
+  }
+}
+
+@include tablet {
+  .examples {
+    padding: 33px 0 68px;
+  }
+
+  .service {
+    padding: 30px;
+    background-image: url("../img/services-1024.jpg");
+
+    &__author {
+      margin: 0 0 10px 0;
+    }
+
+    &__title {
+      margin: 0 0 23px 0;
+      font-size: 34px;
+      line-height: 100%;
+    }
+  }
+  .photos {
+    &__wrap {
+      grid-template-columns: repeat(2, minmax(170px, 218px));
+      grid-template-rows: 332px 186px;
+    }
+
+    &__title {
+      margin: 0 0 26px 0;
+    }
+  }
+}
+
+@include small-tablet {
+  .service {
+    padding: 30px;
+    background-image: url("../img/services-768.jpg");
+
+    &__author {
+      margin: 0 0 15px 0;
+    }
+
+    &__title {
+      margin: 0 0 25px 0;
+      line-height: 90%;
+      font-size: calc(41px - 155% + (5vw - 120%) - 10%);
+    }
+  }
+
+  .photos {
+    &__title {
+      margin: -2px 0 17px 0;
+    }
+
+    &__wrap {
+      grid-template-columns: repeat(2, minmax(124px, 156px));
+      grid-template-rows: 228px 133px;
+    }
+  }
+
+  .photos__title {
+    font-size: 22px;
+  }
+}
+
+@include wide-mobile {
+  .examples__container {
+    flex-direction: column;
+  }
+
+  .service {
+    width: 100%;
+    min-height: 600px;
+    padding: 30px 30px 80px 30px;
+
+    &__title {
+      max-width: 80%;
+      line-height: 100%;
+      font-size: 46px;
+    }
+  }
+
+  .photos {
+    width: 100%;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__wrap {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 328px 233px;
+    }
+  }
+}
+
+@include mobile {
+  .examples {
+    padding: 32px 0 50px 0;
+
+    &__container {
+      gap: 35px;
+    }
+  }
+
+  .service {
+    padding: 30px;
+    min-height: 132vw;
+    background-image: url("../img/services-320.jpg");
+
+    &__tag {
+      right: 5px;
+      top: 6px;
+      padding: 4px 7px;
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    &__author {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    &__title {
+      margin: 0 0 13px 0;
+      font-size: calc(54px - 160% + 5vw - 120% - 10%);
+      line-height: 110%;
+    }
+
+    &__link {
+      padding: 12px 22px;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  .photos {
+    &__title {
+      margin: 0 0 15px 0;
+      @include sectTitleSize;
+    }
+
+    &__wrap {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 58.1vw 33vw;
+    }
+  }
+}

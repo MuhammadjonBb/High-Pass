@@ -14,11 +14,11 @@ const svgSprite = require('gulp-svg-sprite');
 const svgmin = require('gulp-svgmin');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
-const fileInclude = require('gulp-file-include');
+//const fileInclude = require('gulp-file-include');
 const rev = require('gulp-rev');
 const revRewrite = require('gulp-rev-rewrite');
 const revDel = require('gulp-rev-delete-original');
-const htmlmin = require('gulp-htmlmin');
+//const htmlmin = require('gulp-htmlmin');
 const gulpif = require('gulp-if');
 const notify = require('gulp-notify');
 const image = require('gulp-imagemin');
@@ -34,11 +34,13 @@ const plumber = require('gulp-plumber');
 const path = require('path');
 const zip = require('gulp-zip');
 const rootFolder = path.basename(path.resolve());
+const gulpPug = require('gulp-pug');
 
 // paths
 const srcFolder = './src';
 const buildFolder = './app';
 const paths = {
+  pug: `${srcFolder}/*.pug`,
   srcSvg: `${srcFolder}/img/svg/**.svg`,
   srcImgFolder: `${srcFolder}/img`,
   buildImgFolder: `${buildFolder}/img`,
@@ -55,6 +57,14 @@ let isProd = false; // dev by default
 
 const clean = () => {
   return del([buildFolder])
+}
+
+//pug
+const pug = () => {
+  return src(paths.pug)
+    .pipe(gulpPug())
+    .pipe(dest(buildFolder))
+    .pipe(browserSync.stream())
 }
 
 //svg sprite
@@ -242,6 +252,7 @@ const avifImages = () => {
     .pipe(dest(paths.buildImgFolder))
 };
 
+/*
 const htmlInclude = () => {
   return src([`${srcFolder}/*.html`])
     .pipe(fileInclude({
@@ -254,6 +265,7 @@ const htmlInclude = () => {
     .pipe(dest(buildFolder))
     .pipe(browserSync.stream());
 }
+*/
 
 const watchFiles = () => {
   browserSync.init({
@@ -262,21 +274,23 @@ const watchFiles = () => {
     },
   });
 
+  watch(paths.pug, pug)
   watch(paths.srcScss, styles);
   watch(paths.srcFullJs, scripts);
-  watch(`${paths.srcPartialsFolder}/*.html`, htmlInclude);
-  watch(`${srcFolder}/*.html`, htmlInclude);
   watch(`${paths.resourcesFolder}/**`, resources);
   watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png,svg}`, images);
   watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png}`, webpImages);
   watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png}`, avifImages);
   watch(paths.srcSvg, svgSprites);
+
+  //watch(`${paths.srcPartialsFolder}/*.html`, htmlInclude);
+  //watch(`${srcFolder}/*.html`, htmlInclude);
 }
 
 const cache = () => {
   return src(`${buildFolder}/**/*.{css,js,svg,png,jpg,jpeg,webp,avif,woff2}`, {
-      base: buildFolder
-    })
+    base: buildFolder
+  })
     .pipe(rev())
     .pipe(revDel())
     .pipe(dest(buildFolder))
@@ -291,20 +305,20 @@ const rewrite = () => {
       manifest
     }))
     .pipe(dest(paths.buildCssFolder));
-  return src(`${buildFolder}/**/*.html`)
+  return src(`${buildFolder}/**/*.pug`)
     .pipe(revRewrite({
       manifest
     }))
     .pipe(dest(buildFolder));
 }
 
-const htmlMinify = () => {
-  return src(`${buildFolder}/**/*.html`)
-    .pipe(htmlmin({
-      collapseWhitespace: true
-    }))
-    .pipe(dest(buildFolder));
-}
+//const htmlMinify = () => {
+//return src(`${buildFolder}/**/*.html`)
+//.pipe(htmlmin({
+//collapseWhitespace: true
+//}))
+//  .pipe(dest(buildFolder));
+//}
 
 const zipFiles = (done) => {
   del.sync([`${buildFolder}/*.zip`]);
@@ -323,12 +337,13 @@ const toProd = (done) => {
   isProd = true;
   done();
 };
+exports.pug = pug
 
-exports.default = series(clean, htmlInclude, scripts, styles, resources, images, webpImages, avifImages, svgSprites, watchFiles);
+exports.default = series(clean, pug, /*htmlInclude,*/ scripts, styles, resources, images, webpImages, avifImages, svgSprites, watchFiles);
 
-exports.backend = series(clean, htmlInclude, scriptsBackend, stylesBackend, resources, images, webpImages, avifImages, svgSprites)
+exports.backend = series(clean, /*htmlInclude,*/ scriptsBackend, stylesBackend, resources, images, webpImages, avifImages, svgSprites)
 
-exports.build = series(toProd, clean, htmlInclude, scripts, styles, resources, images, webpImages, avifImages, svgSprites, htmlMinify);
+exports.build = series(toProd, clean, pug, /*htmlInclude,*/ scripts, styles, resources, images, webpImages, avifImages, svgSprites, /*htmlMinify*/);
 
 exports.cache = series(cache, rewrite);
 
