@@ -118,31 +118,31 @@
 
   &__item--landscape {
     grid-area: landscape;
-    background-image: url("../img/projects-1920_1.webp");
+    background-image: url("../img/projects-1920_1.jpg");
   }
   &__item--portrait1 {
     grid-area: portrait1;
-    background-image: url("../img/projects-1920_2.webp");
+    background-image: url("../img/projects-1920_2.jpg");
   }
   &__item--subject {
     grid-area: subject;
-    background-image: url("../img/projects-1920_3.webp");
+    background-image: url("../img/projects-1920_3.jpg");
   }
   &__item--wide1 {
     grid-area: wide1;
-    background-image: url("../img/projects-1920_4.webp");
+    background-image: url("../img/projects-1920_4.jpg");
   }
   &__item--wide2 {
     grid-area: wide2;
-    background-image: url("../img/projects-1920_5.webp");
+    background-image: url("../img/projects-1920_5.jpg");
   }
   &__item--retouch {
     grid-area: retouch;
-    background-image: url("../img/projects-1920_6.webp");
+    background-image: url("../img/projects-1920_6.jpg");
   }
   &__item--portrait2 {
     grid-area: portrait2;
-    background-image: url("../img/projects-1920_7.webp");
+    background-image: url("../img/projects-1920_7.jpg");
   }
 }
 @include big-desktop {
@@ -162,30 +162,30 @@
     }
 
     &__item--landscape {
-      background-image: url("../img/projects-1024_1.webp");
+      background-image: url("../img/projects-1024_1.jpg");
       background-size: 100% 184px;
     }
     &__item--portrait1 {
-      background-image: url("../img/projects-1024_2.webp");
+      background-image: url("../img/projects-1024_2.jpg");
       background-size: 100% 184px;
     }
     &__item--subject {
-      background-image: url("../img/projects-1024_3.webp");
+      background-image: url("../img/projects-1024_3.jpg");
       background-size: 100% 184px;
     }
     &__item--wide1 {
-      background-image: url("../img/projects-1024_4.webp");
+      background-image: url("../img/projects-1024_4.jpg");
       background-size: cover;
     }
     &__item--wide2 {
-      background-image: url("../img/projects-1024_7.webp");
+      background-image: url("../img/projects-1024_7.jpg");
       background-size: cover;
     }
     &__item--retouch {
-      background-image: url("../img/projects-1024_5.webp");
+      background-image: url("../img/projects-1024_5.jpg");
     }
     &__item--portrait2 {
-      background-image: url("../img/projects-1024_6.webp");
+      background-image: url("../img/projects-1024_6.jpg");
     }
 
     &__item--landscape &__item-descr,
@@ -269,31 +269,31 @@
     }
 
     &__item--landscape {
-      background-image: url("../img/projects-768_1.webp");
+      background-image: url("../img/projects-768_1.jpg");
       background-size: 100% 184px;
     }
     &__item--portrait1 {
-      background-image: url("../img/projects-768_2.webp");
+      background-image: url("../img/projects-768_2.jpg");
       background-size: 100% 184px;
     }
     &__item--subject {
-      background-image: url("../img/projects-768_3.webp");
+      background-image: url("../img/projects-768_3.jpg");
       background-size: 100% 184px;
     }
     &__item--wide1 {
-      background-image: url("../img/projects-768_4.webp");
+      background-image: url("../img/projects-768_4.jpg");
       background-size: cover;
     }
     &__item--wide2 {
-      background-image: url("../img/projects-768_7.webp");
+      background-image: url("../img/projects-768_7.jpg");
       background-size: cover;
     }
     &__item--retouch {
-      background-image: url("../img/projects-768_5.webp");
+      background-image: url("../img/projects-768_5.jpg");
       margin-top: 5px;
     }
     &__item--portrait2 {
-      background-image: url("../img/projects-768_6.webp");
+      background-image: url("../img/projects-768_6.jpg");
       margin-top: 5px;
     }
 
@@ -351,28 +351,28 @@
     }
 
     &__item--landscape {
-      background-image: url("../img/projects-320_1.webp");
+      background-image: url("../img/projects-320_1.jpg");
     }
     &__item--portrait1 {
-      background-image: url("../img/projects-320_2.webp");
+      background-image: url("../img/projects-320_2.jpg");
     }
     &__item--subject {
-      background-image: url("../img/projects-1024_3.webp");
+      background-image: url("../img/projects-1024_3.jpg");
       background-size: 100% 215px;
     }
     &__item--wide1 {
-      background-image: url("../img/projects-768_4.webp");
+      background-image: url("../img/projects-768_4.jpg");
       background-size: cover;
     }
     &__item--wide2 {
-      background-image: url("../img/projects-768_7.webp");
+      background-image: url("../img/projects-768_7.jpg");
       background-size: cover;
     }
     &__item--retouch {
-      background-image: url("../img/projects-320_5.webp");
+      background-image: url("../img/projects-320_5.jpg");
     }
     &__item--portrait2 {
-      background-image: url("../img/projects-320_6.webp");
+      background-image: url("../img/projects-320_6.jpg");
     }
 
     &__item--portrait2 &__item-descr,
@@ -441,30 +441,30 @@
 
     &__item--landscape::before {
       bottom: 94px;
-      background-image: url("../img/projects-320_1.webp");
+      background-image: url("../img/projects-320_1.jpg");
     }
 
     &__item--portrait1::before {
       bottom: 94px;
-      background-image: url("../img/projects-320_2.webp");
+      background-image: url("../img/projects-320_2.jpg");
     }
     &__item--subject::before {
       bottom: 94px;
-      background-image: url("../img/projects-320_3.webp");
+      background-image: url("../img/projects-320_3.jpg");
     }
     &__item--wide1::before {
-      background-image: url("../img/projects-320_4.webp");
+      background-image: url("../img/projects-320_4.jpg");
     }
     &__item--wide2::before {
-      background-image: url("../img/projects-320_7.webp");
+      background-image: url("../img/projects-320_7.jpg");
     }
     &__item--retouch::before {
       bottom: 114px;
-      background-image: url("../img/projects-320_5.webp");
+      background-image: url("../img/projects-320_5.jpg");
     }
     &__item--portrait2::before {
       bottom: 115px;
-      background-image: url("../img/projects-320_6.webp");
+      background-image: url("../img/projects-320_6.jpg");
     }
 
     &__item--retouch,

@@ -329,12 +329,12 @@
 
     &__items-wrap {
       width: 70vw;
-      transform: translate(-800%, 47px);
+      transform: translate(-800%, calc(-7vw + 80px));
       z-index: 1;
     }
 
     &__items-wrap.search--active {
-      transform: translate(13%, 47px);
+      transform: translate(13%, calc(-7vw + 80px));
     }
   }
 }

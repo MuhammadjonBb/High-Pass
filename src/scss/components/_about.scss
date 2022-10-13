@@ -92,7 +92,7 @@
 @include big-desktop {
   .about {
     &__right {
-      background-image: url("../img/about-1024.webp");
+      background-image: url("../img/about-1024.jpg");
       background-size: cover;
       background-position: center 40px;
     }
@@ -124,7 +124,7 @@
       top: 33px;
       bottom: 32.4%;
       right: 0;
-      background-image: url("../img/about-1024.webp");
+      background-image: url("../img/about-1024.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -152,7 +152,7 @@
     padding: 30px 0 63px;
 
     &__right::before {
-      background-image: url("../img/about-768.webp");
+      background-image: url("../img/about-768.jpg");
       bottom: 24%;
     }
 
@@ -185,7 +185,7 @@
     &__right::before {
       top: 0;
       bottom: 42%;
-      background-image: url("../img/about-320.webp");
+      background-image: url("../img/about-320.jpg");
     }
 
     &__form {

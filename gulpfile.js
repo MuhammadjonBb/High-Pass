@@ -339,11 +339,11 @@ const toProd = (done) => {
 };
 exports.pug = pug
 
-exports.default = series(clean, pug, /*htmlInclude,*/ scripts, styles, resources, images, webpImages, avifImages, svgSprites, watchFiles);
+exports.default = series(clean, pug, /*htmlInclude,*/ scripts, styles, resources, images, /*webpImages*/ avifImages, svgSprites, watchFiles);
 
-exports.backend = series(clean, /*htmlInclude,*/ scriptsBackend, stylesBackend, resources, images, webpImages, avifImages, svgSprites)
+exports.backend = series(clean, /*htmlInclude,*/ scriptsBackend, stylesBackend, resources, images, /*webpImages*/ avifImages, svgSprites)
 
-exports.build = series(toProd, clean, pug, /*htmlInclude,*/ scripts, styles, resources, images, webpImages, avifImages, svgSprites, /*htmlMinify*/);
+exports.build = series(toProd, clean, pug, /*htmlInclude,*/ scripts, styles, resources, images, /*webpImages*/ avifImages, svgSprites, /*htmlMinify*/);
 
 exports.cache = series(cache, rewrite);
 
