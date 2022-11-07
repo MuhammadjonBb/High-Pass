@@ -21,13 +21,12 @@
   }
 
   &__item {
+    @include flex;
+    justify-content: space-between;
+    flex-direction: column;
     position: relative;
     background-size: contain;
     background-repeat: no-repeat;
-  }
-
-  &__item--small {
-    @include flex-col-end;
   }
 
   &__tag {
@@ -46,6 +45,7 @@
   &__item-descr {
     margin-bottom: 12px;
     font-family: "Roboto";
+    font-weight: 400;
     font-size: 16px;
     line-height: 22px;
     color: $darken;
@@ -82,12 +82,6 @@
     color: $white;
   }
 
-  &__item--wide {
-    padding: 22px 30px 31px 30px;
-    @include flex;
-    flex-direction: column;
-  }
-
   &__descr--wide {
     max-width: 70%;
     color: $white;
@@ -118,15 +112,12 @@
 
   &__item--landscape {
     grid-area: landscape;
-    background-image: url("../img/projects-1920_1.jpg");
   }
   &__item--portrait1 {
     grid-area: portrait1;
-    background-image: url("../img/projects-1920_2.jpg");
   }
   &__item--subject {
     grid-area: subject;
-    background-image: url("../img/projects-1920_3.jpg");
   }
   &__item--wide1 {
     grid-area: wide1;
@@ -138,13 +129,27 @@
   }
   &__item--retouch {
     grid-area: retouch;
-    background-image: url("../img/projects-1920_6.jpg");
   }
   &__item--portrait2 {
     grid-area: portrait2;
-    background-image: url("../img/projects-1920_7.jpg");
   }
 }
+
+.article {
+  height: 100%;
+
+  &--small {
+    height: auto;
+    @include flex-col-end;
+  }
+
+  &--wide {
+    padding: 22px 30px 31px 30px;
+    @include flex;
+    flex-direction: column;
+  }
+}
+
 @include big-desktop {
   .projects {
     &__container {
@@ -161,18 +166,11 @@
         "portrait2 portrait2 portrait2 wide2 wide2 wide2 wide2 wide2";
     }
 
-    &__item--landscape {
-      background-image: url("../img/projects-1024_1.jpg");
-      background-size: 100% 184px;
+    &__img {
+      width: 100%;
+      height: 184px;
     }
-    &__item--portrait1 {
-      background-image: url("../img/projects-1024_2.jpg");
-      background-size: 100% 184px;
-    }
-    &__item--subject {
-      background-image: url("../img/projects-1024_3.jpg");
-      background-size: 100% 184px;
-    }
+
     &__item--wide1 {
       background-image: url("../img/projects-1024_4.jpg");
       background-size: cover;
@@ -180,12 +178,6 @@
     &__item--wide2 {
       background-image: url("../img/projects-1024_7.jpg");
       background-size: cover;
-    }
-    &__item--retouch {
-      background-image: url("../img/projects-1024_5.jpg");
-    }
-    &__item--portrait2 {
-      background-image: url("../img/projects-1024_6.jpg");
     }
 
     &__item--landscape &__item-descr,
@@ -227,10 +219,6 @@
       transform: translateY(6px);
     }
 
-    &__item--wide {
-      padding: 24px 30px 37px;
-    }
-
     &__date--wide {
       margin: 0 0 8px 0;
     }
@@ -249,8 +237,14 @@
     &__item--portrait2 &__date {
       transform: translateY(0);
     }
+  }
 
-    &__item--wide2 {
+  .article {
+    &--wide {
+      padding: 24px 30px 37px;
+    }
+
+    &--wide2 {
       padding: 24px 30px 30px;
     }
   }
@@ -268,18 +262,6 @@
         "wide2 wide2 wide2 wide2 wide2 wide2";
     }
 
-    &__item--landscape {
-      background-image: url("../img/projects-768_1.jpg");
-      background-size: 100% 184px;
-    }
-    &__item--portrait1 {
-      background-image: url("../img/projects-768_2.jpg");
-      background-size: 100% 184px;
-    }
-    &__item--subject {
-      background-image: url("../img/projects-768_3.jpg");
-      background-size: 100% 184px;
-    }
     &__item--wide1 {
       background-image: url("../img/projects-768_4.jpg");
       background-size: cover;
@@ -289,11 +271,9 @@
       background-size: cover;
     }
     &__item--retouch {
-      background-image: url("../img/projects-768_5.jpg");
       margin-top: 5px;
     }
     &__item--portrait2 {
-      background-image: url("../img/projects-768_6.jpg");
       margin-top: 5px;
     }
 
@@ -318,10 +298,6 @@
       margin: 0;
     }
 
-    &__item--wide {
-      padding: 30px;
-    }
-
     &__date--wide {
       margin: 0 0 3px 0;
     }
@@ -334,6 +310,10 @@
     &__item--portrait2 &__item-descr {
       margin: 0 0 15px 0;
     }
+  }
+
+  .article--wide {
+    padding: 30px;
   }
 }
 
@@ -349,17 +329,6 @@
         "wide2 wide2 wide2 wide2 wide2 wide2 wide2 wide2"
         "retouch retouch retouch retouch portrait2 portrait2 portrait2 portrait2";
     }
-
-    &__item--landscape {
-      background-image: url("../img/projects-320_1.jpg");
-    }
-    &__item--portrait1 {
-      background-image: url("../img/projects-320_2.jpg");
-    }
-    &__item--subject {
-      background-image: url("../img/projects-1024_3.jpg");
-      background-size: 100% 215px;
-    }
     &__item--wide1 {
       background-image: url("../img/projects-768_4.jpg");
       background-size: cover;
@@ -368,11 +337,9 @@
       background-image: url("../img/projects-768_7.jpg");
       background-size: cover;
     }
-    &__item--retouch {
-      background-image: url("../img/projects-320_5.jpg");
-    }
-    &__item--portrait2 {
-      background-image: url("../img/projects-320_6.jpg");
+
+    &__img--subject {
+      background-size: 100% 215px;
     }
 
     &__item--portrait2 &__item-descr,
@@ -439,32 +406,11 @@
       background-position: center;
     }
 
-    &__item--landscape::before {
-      bottom: 94px;
-      background-image: url("../img/projects-320_1.jpg");
-    }
-
-    &__item--portrait1::before {
-      bottom: 94px;
-      background-image: url("../img/projects-320_2.jpg");
-    }
-    &__item--subject::before {
-      bottom: 94px;
-      background-image: url("../img/projects-320_3.jpg");
-    }
     &__item--wide1::before {
       background-image: url("../img/projects-320_4.jpg");
     }
     &__item--wide2::before {
       background-image: url("../img/projects-320_7.jpg");
-    }
-    &__item--retouch::before {
-      bottom: 114px;
-      background-image: url("../img/projects-320_5.jpg");
-    }
-    &__item--portrait2::before {
-      bottom: 115px;
-      background-image: url("../img/projects-320_6.jpg");
     }
 
     &__item--retouch,
@@ -480,10 +426,6 @@
     &__item--portrait2,
     &__item--retouch {
       padding: 0;
-    }
-
-    &__item--wide {
-      justify-content: flex-end;
     }
 
     &__link {
@@ -527,5 +469,8 @@
     &__item--wide2 .projects__descr--wide {
       margin: 0 0 22px 0;
     }
+  }
+  .article--wide {
+    justify-content: flex-end;
   }
 }

@@ -19,7 +19,7 @@
 
   &__list {
     @include flex-all-center;
-    margin: 0 0 0 26px;
+    padding: 0 0 0 26px;
   }
 
   &__item {
@@ -33,6 +33,7 @@
   }
 
   &__link-text {
+    font-family: "TT Firs Neue";
     position: relative;
     z-index: 5;
   }
@@ -47,12 +48,12 @@
   }
 
   &__link:active {
-    color: $brown;
+    color: $light-brown;
   }
 
   @include hover {
     &__link:hover {
-      @include btnStylesHov;
+      color: $brown;
     }
   }
 }
@@ -167,7 +168,7 @@
     margin: 0 9% 0 0;
 
     &__list {
-      margin: 0;
+      padding: 0;
     }
   }
 
@@ -176,7 +177,7 @@
   }
 
   .search.overflow-h {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 }
 
@@ -257,6 +258,7 @@
     z-index: 10;
     transform: translateX(-500%);
     transition: transform 0.5s ease-in-out;
+    overflow-y: auto;
 
     &.menu--active {
       transform: none;
@@ -282,6 +284,7 @@
 
     &__tel-wrap {
       @include flex-v-center;
+      padding: 20px 0 0 0;
     }
 
     &__tel-icon {

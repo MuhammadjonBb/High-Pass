@@ -5,7 +5,7 @@
   const burger = document?.querySelector('[data-burger]');
   const menu = document?.querySelector('[data-menu]');
   const menuItems = document?.querySelectorAll('[data-menu-item]');
-  const close = document?.querySelector('[data-close]');
+  const close = document?.querySelector('[data-burger-close]');
 
   burger?.addEventListener('click', (e) => {
     burger?.classList.toggle('burger--active');
@@ -25,8 +25,8 @@
   close?.addEventListener('click', () => {
     burger?.setAttribute('aria-expanded', 'false');
     burger?.setAttribute('aria-label', 'Открыть меню');
-    burger.classList.remove('burger--active');
-    menu.classList.remove('menu--active');
+    burger?.classList.remove('burger--active');
+    menu?.classList.remove('menu--active');
     document.body.style.overflow = 'visible' // enable scroll
   });
 

@@ -34,7 +34,7 @@ html(lang="ru")
         button.burger__btn.btn-reset
           img(src="img/svg/burger.svg", alt="меню", data-burger)
       .menu(data-menu)
-        button.menu__close.btn-reset(data-close)
+        button.menu__close.btn-reset(data-burger-close)
           img(src="img/svg/close.svg", alt="Закрыть")
         nav.menu__nav
           ul.menu__list.list-reset
@@ -51,7 +51,7 @@ html(lang="ru")
       section.examples#service
        .examples__container.container
           .examples__service.service
-            span.service__tag #мастеркласс
+            a(href="#").service__tag #мастеркласс
             p.service__author Мастер-класс от Игоря Робова
             h2.service__title.text-reset Неоновый фотосет 2.0 7 июля 20:00
             a(href="#").service__link Узнать больше
@@ -90,57 +90,89 @@ html(lang="ru")
           h2.projects__title.text-reset Наши проекты
           ul.projects__list.list-reset
             li.projects__item.projects__item--landscape.list-reset.projects__item--small
-              span.projects__tag #пейзаж
-              p.projects__item-descr.text-reset Синтетически, смешаны с не уникальными данными до степени…
-              span.projects__date 16 июня
-                svg.projects__date-icon(width="12" height="12")
-                  use(xlink:href="img/sprite.svg#calendar")
+              picture.projects__picture
+                source(media="(max-width: 480px)", srcset="img/projects-320_1.jpg")
+                source(media="(max-width: 800px)", srcset="img/projects-768_1.jpg")
+                source(media="(max-width: 1024px)", srcset="img/projects-1024_1.jpg")
+                img(src="img/projects-1920_1.jpg", alt="Изображение природы").projects__piimglandscape.projects__img
+              article.projects__artice.article.article--small
+                a(href="#").projects__tag #пейзаж
+                h3.projects__item-descr.text-reset Синтетически, смешаны с не уникальными данными до степени…
+                span.projects__date 16 июня
+                  svg.projects__date-icon(width="12" height="12")
+                    use(xlink:href="img/sprite.svg#calendar")
 
             li.projects__item.projects__item--portrait1.list-reset.projects__item--small
-              span.projects__tag #портрет
-              p.projects__item-descr.text-reset В своём стремлении улучшить опыт мы&nbsp;упускаем, что явные...
-              span.projects__date 28 мая
-                svg.projects__date-icon(width="12" height="12")
-                  use(xlink:href="img/sprite.svg#calendar")
+              picture.projects__picture
+                source(media="(max-width: 480px)", srcset="img/projects-320_2.jpg")
+                source(media="(max-width: 800px)", srcset="img/projects-768_2.jpg")
+                source(media="(max-width: 1024px)", srcset="img/projects-1024_2.jpg")
+                img(src="img/projects-1920_2.jpg", alt="Изображение природы").projects__piimgportrait1.projects__img
+              article.projects__artice.article.article--small
+                a(href="#").projects__tag #портрет
+                h3.projects__item-descr.text-reset В своём стремлении улучшить опыт мы&nbsp;упускаем, что явные...
+                span.projects__date 28 мая
+                  svg.projects__date-icon(width="12" height="12")
+                    use(xlink:href="img/sprite.svg#calendar")
 
             li.projects__item.projects__item--subject.list-reset.projects__item--small
-              span.projects__tag #предмет
-              p.projects__item-descr.text-reset Равным образом, высокое качество позиционных высокотехнологичная концепция общественного уклада
-              span.projects__date 14 мая
-                svg.projects__date-icon(width="12" height="12")
-                  use(xlink:href="img/sprite.svg#calendar")
+              picture.projects__picture
+                source(media="(max-width: 480px)", srcset="img/projects-320_3.jpg")
+                source(media="(max-width: 800px)", srcset="img/projects-768_3.jpg")
+                source(media="(max-width: 1400px)", srcset="img/projects-1024_3.jpg")
+                img(src="img/projects-1920_3.jpg", alt="Изображение природы").projects__img--subject.projects__img
+              article.projects__artice.article.article--small
+                a(href="#").projects__tag #предмет
+                h3.projects__item-descr.text-reset Равным образом, высокое качество позиционных высокотехнологичная концепция общественного уклада
+                span.projects__date 14 мая
+                  svg.projects__date-icon(width="12" height="12")
+                    use(xlink:href="img/sprite.svg#calendar")
 
             li.projects__item.projects__item--wide.projects__item--wide1.list-reset
-              span.projects__tag #fuji
-              span.projects__date.projects__date--wide 9 апреля
-                svg.projects__date-icon(width="12" height="12")
-                  use(xlink:href="img/sprite.svg#calendar")
-              h2.projects__item-title.text-reset Cемантический разбор
-              p.projects__item-descr.text-reset.projects__descr--wide В рамках спецификации современных стандартов, интерактивные прототипы
-              a.projects__link(href="#") О проекте
+              article.projects__artice.article.article--wide
+                a(href="#").projects__tag #fuji
+                span.projects__date.projects__date--wide 9 апреля
+                  svg.projects__date-icon(width="12" height="12")
+                    use(xlink:href="img/sprite.svg#calendar")
+                h2.projects__item-title.text-reset Cемантический разбор
+                h3.projects__item-descr.text-reset.projects__descr--wide В рамках спецификации современных стандартов, интерактивные прототипы
+                a.projects__link(href="#") О проекте
 
             li.projects__item.projects__item--wide.projects__item--wide2.list-reset
-              span.projects__tag #проектзабвение
-              span.projects__date.projects__date--wide 20 марта
-                svg.projects__date-icon(width="12" height="12")
-                  use(xlink:href="img/sprite.svg#calendar")
-              h2.projects__item-title.text-reset Забвение
-              p.projects__item-descr.text-reset.projects__descr--wide Играет важную роль в формировании глубокомысленных рассуждений
-              a.projects__link(href="#") О проекте
+              article.projects__artice.article.article--wide.article--wide2
+                a(href="#").projects__tag #проектзабвение
+                span.projects__date.projects__date--wide 20 марта
+                  svg.projects__date-icon(width="12" height="12")
+                    use(xlink:href="img/sprite.svg#calendar")
+                h2.projects__item-title.text-reset Забвение
+                h3.projects__item-descr.text-reset.projects__descr--wide Играет важную роль в формировании глубокомысленных рассуждений
+                a.projects__link(href="#") О проекте
 
             li.projects__item.projects__item--retouch.list-reset.projects__item--small
-              span.projects__tag #ретушь
-              p.projects__item-descr.text-reset Как принято считать, многие известные личности и по сей день остаются уделом либералов…
-              span.projects__date 9 марта
-                svg.projects__date-icon(width="12" height="12")
-                 use(xlink:href="img/sprite.svg#calendar")
+              picture.projects__picture
+                source(media="(max-width: 480px)", srcset="img/projects-320_5.jpg")
+                source(media="(max-width: 800px)", srcset="img/projects-768_5.jpg")
+                source(media="(max-width: 1024px)", srcset="img/projects-1024_5.jpg")
+                img(src="img/projects-1920_6.jpg", alt="Изображение природы").projects__img--retouch.projects__img
+              article.projects__artice.article.article--small
+                a(href="#").projects__tag #ретушь
+                h3.projects__item-descr.text-reset Как принято считать, многие известные личности и по сей день остаются уделом либералов…
+                span.projects__date 9 марта
+                  svg.projects__date-icon(width="12" height="12")
+                    use(xlink:href="img/sprite.svg#calendar")
 
             li.projects__item.projects__item--portrait2.list-reset.projects__item--small
-              span.projects__tag #портрет
-              p.projects__item-descr.text-reset С учётом сложившейся международной обстановки, новая модель организационной…
-              span.projects__date 1 марта
-                svg.projects__date-icon(width="12" height="12")
-                  use(xlink:href="img/sprite.svg#calendar")
+              picture.projects__picture
+                source(media="(max-width: 480px)", srcset="img/projects-320_6.jpg")
+                source(media="(max-width: 800px)", srcset="img/projects-768_6.jpg")
+                source(media="(max-width: 1024px)", srcset="img/projects-1024_6.jpg")
+                img(src="img/projects-1920_7.jpg", alt="Изображение природы").projects__piimgportrait2.projects__img
+              article.projects__artice.article.article--small
+                a(href="#").projects__tag #портрет
+                h3.projects__item-descr.text-reset С учётом сложившейся международной обстановки, новая модель организационной…
+                span.projects__date 1 марта
+                  svg.projects__date-icon(width="12" height="12")
+                    use(xlink:href="img/sprite.svg#calendar")
 
       section.contacts#contacts
         .contacts__container.container

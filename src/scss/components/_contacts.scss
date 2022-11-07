@@ -131,20 +131,29 @@
   &__input-contacts {
     padding: 15px 23px;
     margin: 0 0 20px 0;
-    font-family: "Roboto";
     width: 100%;
-    font-size: 16px;
-    line-height: 19px;
-    color: $light-gray;
     background-color: $brighter-gray;
+    color: $darken;
   }
 
   &__comment {
     margin: 0 0 20px 0;
     padding: 16px 23px 93px 23px;
     background-color: $brighter-gray;
+    color: $darken;
     resize: none;
   }
+
+  &__comment::placeholder,
+  &__input-contacts::placeholder {
+    color: $light-gray;
+  }
+}
+
+.input {
+  font-family: "Roboto";
+  font-size: 16px;
+  line-height: 19px;
 }
 
 @include big-desktop {
